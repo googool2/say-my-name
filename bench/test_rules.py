@@ -49,14 +49,24 @@ assert abs(smn.mcnemar_p(0, 6) - 0.03125) < 1e-9
 assert abs(smn.mcnemar_p(1, 5) - 0.21875) < 1e-9
 
 
-def runs(cited):
-    return [{"q": 0, "run": i, "cited": c, "quote_share": 0.3 if c else 0.0} for i, c in enumerate(cited)]
+def runs(cited, quote=None):
+    return [{"q": 0, "run": i, "cited": c, "quote_share": (quote[i] if quote else (0.3 if c else 0.0))}
+            for i, c in enumerate(cited)]
 
 
 assert smn.compare(runs([0] * 10), runs([1] * 10))["verdict"] == "WIN"
 assert smn.compare(runs([1] * 10), runs([0] * 10))["verdict"] == "WORSE"
 assert smn.compare(runs([0, 1] * 5), runs([0, 1] * 5))["verdict"] == "no measurable difference"  # A/A
 assert smn.compare(runs([0] * 10), runs([1, 1, 0, 0, 0, 0, 0, 0, 0, 0]))["verdict"] == "no measurable difference"
+# ceiling: cited every time in both, but the variant supplies much more of each answer -> still a WIN
+assert smn.compare(runs([1] * 10, [0.25] * 10), runs([1] * 10, [0.6] * 10))["verdict"] == "WIN"
+# and the opposite: same citations, much less of the answer -> WORSE
+assert smn.compare(runs([1] * 10, [0.6] * 10), runs([1] * 10, [0.25] * 10))["verdict"] == "WORSE"
+# A/A with noisy quote shares must not win
+import random
+rnd = random.Random(7)
+noisy = [round(rnd.uniform(0.1, 0.5), 2) for _ in range(20)]
+assert smn.compare(runs([1] * 20, noisy), runs([1] * 20, noisy[::-1]))["verdict"] != "WIN"
 
 # Rewrites may not invent numbers or quotes.
 nums, quotes = smn.unsupported_facts('Trusted by 4,000 shops since 2019. "Best tool we ever used, honestly."',

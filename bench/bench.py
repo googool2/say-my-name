@@ -104,8 +104,10 @@ def run(cwd, *args, engine):
     return r.stdout
 
 
-def bench_fixture(name, fx, work, engine, runs):
+def bench_fixture(name, fx, work, engine, runs, reuse=False):
     d = work / name
+    if reuse and (d / ".smn/results").exists():  # recompute verdicts from saved answers: no new engine calls
+        return summarize(name, fx, d)
     if d.exists():
         shutil.rmtree(d)
     d.mkdir(parents=True)
@@ -119,12 +121,16 @@ def bench_fixture(name, fx, work, engine, runs):
         args += ["--question", q]
     for fname in fx["competitors"]:
         args += ["--competitor", fname]
-    prep_out = run(d, *args, engine=engine)
+    run(d, *args, engine=engine)
     for variant in ("aa", "planted", "removed"):
         (d / f"{variant}.txt").write_text(fx["baseline"] if variant == "aa" else fx[variant], encoding="utf-8")
         run(d, "variant", variant, "--from", f"{variant}.txt", engine=engine)
     for t in ("baseline", "aa", "planted", "removed"):
         run(d, "test", *([] if t == "baseline" else [t]), engine=engine)
+    return summarize(name, fx, d)
+
+
+def summarize(name, fx, d):
     res = {t: json.loads((d / f".smn/results/{t}.json").read_text(encoding="utf-8")) for t in ("baseline", "aa", "planted", "removed")}
     m = {t: smn.metrics(r["runs"]) for t, r in res.items()}
     c = {t: smn.compare(res["baseline"]["runs"], res[t]["runs"]) for t in ("aa", "planted", "removed")}
@@ -135,7 +141,8 @@ def bench_fixture(name, fx, work, engine, runs):
         "repeat within 10 points": abs(m["baseline"]["cited"] - m["aa"]["cited"]) <= 0.10,
     }
     if name == "fa":
-        checks["Persian issues detected"] = "arabic_yeh_kaf" in prep_out and "space_instead_of_zwnj" in prep_out
+        issues = smn.persian_issues(fx["baseline"])
+        checks["Persian issues detected"] = "arabic_yeh_kaf" in issues and "space_instead_of_zwnj" in issues
         checks["Persian brand detected"] = m["planted"]["brand"] > 0
     calls = sum(len(r["runs"]) for r in res.values())
     cost = sum(x["cost_usd"] for r in res.values() for x in r["runs"])
@@ -149,16 +156,17 @@ def main():
     ap.add_argument("--engine", choices=["fake", "claude"], default="fake")
     ap.add_argument("--runs", type=int, default=5)
     ap.add_argument("--yes", action="store_true", help="skip the confirmation for --engine claude")
+    ap.add_argument("--reuse", action="store_true", help="recompute verdicts from answers already saved in WORKDIR")
     a = ap.parse_args()
     calls = sum(len(fx["questions"]) * a.runs * 4 for fx in FIXTURES.values())
-    if a.engine == "claude" and not a.yes:
+    if a.engine == "claude" and not a.yes and not a.reuse:
         print(f"This makes {calls} Claude calls (about ${0.05 * calls:.0f}-{0.08 * calls:.0f} of quota). Rerun with --yes.")
         return
     work = Path(a.workdir).resolve()
     out = {"engine": a.engine, "runs": a.runs, "date": time.strftime("%Y-%m-%d"), "fixtures": {}}
     for name, fx in FIXTURES.items():
         print(f"== {name}", flush=True)
-        out["fixtures"][name] = bench_fixture(name, fx, work, a.engine, a.runs)
+        out["fixtures"][name] = bench_fixture(name, fx, work, a.engine, a.runs, a.reuse)
     ok = all(v for f in out["fixtures"].values() for v in f["checks"].values())
     out["all_passed"] = ok
     (HERE / ("results.json" if a.engine == "claude" else "results-fake.json")).write_text(
@@ -171,7 +179,8 @@ def main():
                   "| version | cited | quote share | brand | verdict vs baseline |", "|---|---:|---:|---:|---|"]
         for t in ("baseline", "aa", "planted", "removed"):
             mm = f["metrics"][t]
-            v = "-" if t == "baseline" else f"{f['compare'][t]['verdict']} (p={f['compare'][t]['p']:.3f})"
+            cc = f["compare"].get(t, {})
+            v = "-" if t == "baseline" else f"{cc['verdict']} (citation p={cc['p_cite']:.3f}, quote p={cc['p_quote']:.3f})"
             lines.append(f"| {t} | {mm['cited']:.0%} | {mm['quote']:.2f} | {mm['brand']:.0%} | {v} |")
         lines += ["", "| check | result |", "|---|---|"]
         lines += [f"| {k} | {'✅' if v else '❌'} |" for k, v in f["checks"].items()]

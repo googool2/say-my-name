@@ -40,6 +40,10 @@
      "only_baseline": 0,
      "only_variant": 0,
      "p": 1.0,
+     "p_cite": 1.0,
+     "p_quote": 1.0,
+     "quote_up": 0,
+     "quote_down": 0,
      "quote_delta": 0.0,
      "verdict": "no measurable difference"
     },
@@ -47,7 +51,11 @@
      "pairs": 20,
      "only_baseline": 0,
      "only_variant": 8,
-     "p": 0.0078125,
+     "p": 1.52587890625e-05,
+     "p_cite": 0.0078125,
+     "p_quote": 1.52587890625e-05,
+     "quote_up": 17,
+     "quote_down": 0,
      "quote_delta": 0.35925,
      "verdict": "WIN"
     },
@@ -56,6 +64,10 @@
      "only_baseline": 5,
      "only_variant": 0,
      "p": 0.0625,
+     "p_cite": 0.0625,
+     "p_quote": 0.0625,
+     "quote_up": 0,
+     "quote_down": 5,
      "quote_delta": -0.094375,
      "verdict": "no measurable difference"
     }
@@ -107,6 +119,10 @@
      "only_baseline": 0,
      "only_variant": 0,
      "p": 1.0,
+     "p_cite": 1.0,
+     "p_quote": 1.0,
+     "quote_up": 0,
+     "quote_down": 0,
      "quote_delta": 0.0,
      "verdict": "no measurable difference"
     },
@@ -114,7 +130,11 @@
      "pairs": 15,
      "only_baseline": 0,
      "only_variant": 9,
-     "p": 0.00390625,
+     "p": 6.103515625e-05,
+     "p_cite": 0.00390625,
+     "p_quote": 6.103515625e-05,
+     "quote_up": 15,
+     "quote_down": 0,
      "quote_delta": 0.47150000000000003,
      "verdict": "WIN"
     },
@@ -123,6 +143,10 @@
      "only_baseline": 5,
      "only_variant": 1,
      "p": 0.21875,
+     "p_cite": 0.21875,
+     "p_quote": 0.21875,
+     "quote_up": 1,
+     "quote_down": 5,
      "quote_delta": -0.10066666666666667,
      "verdict": "no measurable difference"
     }

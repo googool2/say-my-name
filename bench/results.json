@@ -1,0 +1,168 @@
+{
+ "engine": "claude",
+ "runs": 5,
+ "date": "2026-10-23",
+ "fixtures": {
+  "en": {
+   "metrics": {
+    "baseline": {
+     "cited": 0.9,
+     "quote": 0.26405,
+     "brand": 0.9,
+     "position": 2.1666666666666665,
+     "n": 20
+    },
+    "aa": {
+     "cited": 0.85,
+     "quote": 0.28971,
+     "brand": 0.85,
+     "position": 2.1176470588235294,
+     "n": 20
+    },
+    "planted": {
+     "cited": 1.0,
+     "quote": 0.571465,
+     "brand": 1.0,
+     "position": 1.05,
+     "n": 20
+    },
+    "removed": {
+     "cited": 0.25,
+     "quote": 0.037585,
+     "brand": 0.2,
+     "position": 3.2,
+     "n": 20
+    }
+   },
+   "compare": {
+    "aa": {
+     "pairs": 20,
+     "only_baseline": 1,
+     "only_variant": 0,
+     "p": 0.629058837890625,
+     "p_cite": 1.0,
+     "p_quote": 0.629058837890625,
+     "quote_up": 10,
+     "quote_down": 7,
+     "quote_delta": 0.025660000000000006,
+     "verdict": "no measurable difference"
+    },
+    "planted": {
+     "pairs": 20,
+     "only_baseline": 0,
+     "only_variant": 2,
+     "p": 1.9073486328125e-06,
+     "p_cite": 0.5,
+     "p_quote": 1.9073486328125e-06,
+     "quote_up": 20,
+     "quote_down": 0,
+     "quote_delta": 0.307415,
+     "verdict": "WIN"
+    },
+    "removed": {
+     "pairs": 20,
+     "only_baseline": 13,
+     "only_variant": 0,
+     "p": 0.00014495849609375,
+     "p_cite": 0.000244140625,
+     "p_quote": 0.00014495849609375,
+     "quote_up": 1,
+     "quote_down": 17,
+     "quote_delta": -0.226465,
+     "verdict": "WORSE"
+    }
+   },
+   "checks": {
+    "A/A is not a win": true,
+    "planted wins": true,
+    "removed does not win": true,
+    "repeat within 10 points": true
+   },
+   "calls": 80,
+   "cost_usd": 4.799,
+   "seconds": 628.4
+  },
+  "fa": {
+   "metrics": {
+    "baseline": {
+     "cited": 0.8666666666666667,
+     "quote": 0.42324666666666666,
+     "brand": 0.8666666666666667,
+     "position": 1.6923076923076923,
+     "n": 15
+    },
+    "aa": {
+     "cited": 0.9333333333333333,
+     "quote": 0.40562,
+     "brand": 0.9333333333333333,
+     "position": 1.8571428571428572,
+     "n": 15
+    },
+    "planted": {
+     "cited": 1.0,
+     "quote": 0.6390666666666667,
+     "brand": 1.0,
+     "position": 1.0,
+     "n": 15
+    },
+    "removed": {
+     "cited": 0.2,
+     "quote": 0.02768666666666667,
+     "brand": 0.2,
+     "position": 3.3333333333333335,
+     "n": 15
+    }
+   },
+   "compare": {
+    "aa": {
+     "pairs": 15,
+     "only_baseline": 0,
+     "only_variant": 1,
+     "p": 0.4239501953125,
+     "p_cite": 1.0,
+     "p_quote": 0.4239501953125,
+     "quote_up": 5,
+     "quote_down": 9,
+     "quote_delta": -0.01762666666666666,
+     "verdict": "no measurable difference"
+    },
+    "planted": {
+     "pairs": 15,
+     "only_baseline": 0,
+     "only_variant": 2,
+     "p": 6.103515625e-05,
+     "p_cite": 0.5,
+     "p_quote": 6.103515625e-05,
+     "quote_up": 15,
+     "quote_down": 0,
+     "quote_delta": 0.21582,
+     "verdict": "WIN"
+    },
+    "removed": {
+     "pairs": 15,
+     "only_baseline": 10,
+     "only_variant": 0,
+     "p": 0.000244140625,
+     "p_cite": 0.001953125,
+     "p_quote": 0.000244140625,
+     "quote_up": 0,
+     "quote_down": 13,
+     "quote_delta": -0.39555999999999997,
+     "verdict": "WORSE"
+    }
+   },
+   "checks": {
+    "A/A is not a win": true,
+    "planted wins": true,
+    "removed does not win": true,
+    "repeat within 10 points": true,
+    "Persian issues detected": true,
+    "Persian brand detected": true
+   },
+   "calls": 60,
+   "cost_usd": 3.663,
+   "seconds": 636.2
+  }
+ },
+ "all_passed": true
+}

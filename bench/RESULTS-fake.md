@@ -7,9 +7,9 @@
 | version | cited | quote share | brand | verdict vs baseline |
 |---|---:|---:|---:|---|
 | baseline | 60% | 0.26 | 15% | - |
-| aa | 60% | 0.26 | 15% | no measurable difference (p=1.000) |
-| planted | 100% | 0.62 | 100% | WIN (p=0.008) |
-| removed | 35% | 0.17 | 15% | no measurable difference (p=0.062) |
+| aa | 60% | 0.26 | 15% | no measurable difference (citation p=1.000, quote p=1.000) |
+| planted | 100% | 0.62 | 100% | WIN (citation p=0.008, quote p=0.000) |
+| removed | 35% | 0.17 | 15% | no measurable difference (citation p=0.062, quote p=0.062) |
 
 | check | result |
 |---|---|
@@ -25,9 +25,9 @@
 | version | cited | quote share | brand | verdict vs baseline |
 |---|---:|---:|---:|---|
 | baseline | 40% | 0.15 | 0% | - |
-| aa | 40% | 0.15 | 0% | no measurable difference (p=1.000) |
-| planted | 100% | 0.62 | 100% | WIN (p=0.004) |
-| removed | 13% | 0.05 | 0% | no measurable difference (p=0.219) |
+| aa | 40% | 0.15 | 0% | no measurable difference (citation p=1.000, quote p=1.000) |
+| planted | 100% | 0.62 | 100% | WIN (citation p=0.004, quote p=0.000) |
+| removed | 13% | 0.05 | 0% | no measurable difference (citation p=0.219, quote p=0.219) |
 
 | check | result |
 |---|---|

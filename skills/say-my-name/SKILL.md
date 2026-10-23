@@ -35,4 +35,4 @@ The goal: when someone asks an AI which product to pick, it says your name, and 
 - **quote:** how much of the answer's wording came from the page, with earlier sentences weighted more.
 - **brand:** the share of answers that named the brand.
 - **avg #:** the page's average position among the cited sources.
-- **verdict:** WIN or WORSE needs p < 0.05 on paired runs (same questions, competitors and shuffles). Anything else is "no measurable difference". With few runs, small gains will show as "no measurable difference". Offer more `--runs` if the user wants a sharper answer.
+- **verdict:** two paired tests on the same questions, competitors and shuffles: one on citation, one on quote share. Each must reach p < 0.025, which keeps the overall false-win rate under 5%. WIN means at least one measure improved and neither got worse. If the page is already cited almost every time, citation can't rise any further, and the gain shows up in quote share: the page supplies more of the answer. Anything else is "no measurable difference" or "mixed". With few runs, small gains will show as "no measurable difference". Offer more `--runs` if the user wants a sharper answer.

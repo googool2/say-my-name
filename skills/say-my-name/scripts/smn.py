@@ -322,18 +322,28 @@ def mcnemar_p(b, c):
     return min(1.0, 2 * tail)
 
 
+ALPHA = 0.025  # two tests per comparison (citation, quote share): Bonferroni keeps the false-win rate under 5%
+
+
 def compare(base, var):
-    """Pair runs by (question, run) and decide whether the variant measurably wins."""
+    """Pair runs by (question, run) and decide whether the variant measurably wins.
+    Two paired tests: citation (McNemar) and quote share (sign test). When a page is already cited almost every
+    time, citation can't rise further and quote share is where the difference shows."""
     bmap = {(r["q"], r["run"]): r for r in base}
     pairs = [(bmap[(r["q"], r["run"])], r) for r in var if (r["q"], r["run"]) in bmap]
     b = sum(1 for x, y in pairs if x["cited"] and not y["cited"])
     c = sum(1 for x, y in pairs if y["cited"] and not x["cited"])
-    p = mcnemar_p(b, c)
-    dq = sum(y["quote_share"] - x["quote_share"] for x, y in pairs) / max(len(pairs), 1)
-    win = c > b and p < 0.05 and dq >= -0.02
-    lose = b > c and p < 0.05
-    return {"pairs": len(pairs), "only_baseline": b, "only_variant": c, "p": p, "quote_delta": dq,
-            "verdict": "WIN" if win else ("WORSE" if lose else "no measurable difference")}
+    p_cite = mcnemar_p(b, c)
+    diffs = [y["quote_share"] - x["quote_share"] for x, y in pairs]
+    up, down = sum(d > 0.01 for d in diffs), sum(d < -0.01 for d in diffs)
+    p_quote = mcnemar_p(down, up)  # the same exact binomial, on the signs of the differences
+    better = (c > b and p_cite < ALPHA) or (up > down and p_quote < ALPHA)
+    worse = (b > c and p_cite < ALPHA) or (down > up and p_quote < ALPHA)
+    verdict = "WIN" if better and not worse else "WORSE" if worse and not better else \
+        "mixed" if better and worse else "no measurable difference"
+    return {"pairs": len(pairs), "only_baseline": b, "only_variant": c, "p": min(p_cite, p_quote), "p_cite": p_cite,
+            "p_quote": p_quote, "quote_up": up, "quote_down": down,
+            "quote_delta": sum(diffs) / max(len(diffs), 1), "verdict": verdict}
 
 
 def cmd_report(a):
@@ -358,7 +368,8 @@ def cmd_report(a):
             continue
         m, c = metrics(r["runs"]), compare(base, r["runs"])
         print(f"  {name:<16}{m['cited']:>7.0%}{m['quote']:>8.2f}{m['brand']:>7.0%}{(m['position'] or 0):>7.1f}   "
-              f"{c['verdict']} (p={c['p']:.3f}, {c['only_variant']} vs {c['only_baseline']} discordant pairs)")
+              f"{c['verdict']} (citation p={c['p_cite']:.3f}, quote share p={c['p_quote']:.3f}; "
+              f"quote up in {c['quote_up']}/{c['pairs']} runs, down in {c['quote_down']})")
         if c["verdict"] == "WIN":
             winners.append((m["cited"], name))
     print(f"Note: {HONESTY}")
