@@ -29,7 +29,7 @@ PERSIAN = re.compile(r"[پچژگیکۀ]")
 ARABIC_YEH_KAF = re.compile(r"[يك]")
 ZWNJ_MI = re.compile(r"(?<![\w‌])(ن?می) (?=[؀-ۿ])")          # "می رود" -> "می‌رود"
 ZWNJ_HA = re.compile(r"(?<=[؀-ۿ]) (ها|های|هایی|ترین|تر)(?![؀-ۿ])")
-DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
+DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩’‘", "01234567890123456789''")  # and curly apostrophes
 
 
 def normalize(s):
@@ -299,6 +299,8 @@ def cmd_test(a):
                     break
                 except RuntimeError as e:
                     err = e
+            if answer is None and "limit" in str(err).lower():  # the rest would fail too; saving them would skew results
+                sys.exit(f"Stopped: {err}. Nothing was saved for {name!r}; run it again after the limit resets.")
             if answer is None:
                 print(f"  q{qi + 1} run {r + 1}: engine error, skipped ({err})")
                 continue

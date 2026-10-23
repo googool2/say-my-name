@@ -75,6 +75,7 @@ nums, quotes = smn.unsupported_facts('Trusted by 4,000 shops since 2019. "Best t
                                      "Founded in 2019. Used by shops across the country.")
 assert nums == ["4,000"] and len(quotes) == 1, (nums, quotes)
 assert smn.unsupported_facts("Since ۲۰۱۹.", "Founded in 2019.") == ([], [])
+assert smn.unsupported_facts("\"We're massive users of it, honestly.\"", "We’re massive users of it, honestly.") == ([], [])  # curly apostrophe
 
 # Prompt and clipping.
 p = smn.build_prompt("best tool?", ["alpha", "beta"])
