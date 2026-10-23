@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/say-my-name.jpg" alt="Now, say my name: a cyberpunk figure with HUD glasses in a desert, a hovering car and a neon city behind him" width="760">
+</p>
+
 <h1 align="center">Say My Name</h1>
 
 <p align="center">
