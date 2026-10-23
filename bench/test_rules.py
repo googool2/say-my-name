@@ -19,6 +19,11 @@ fa = "این نرم افزار حسابداري برای فروشگاه های �
 issues = smn.persian_issues(fa)
 assert issues["arabic_yeh_kaf"] >= 8 and issues["space_instead_of_zwnj"] >= 8, issues
 assert smn.persian_issues("Plain English text about accounting software. " * 10) == {}
+# a page typed entirely on an Arabic keyboard is still Persian (it has گ/پ), and its problems are found
+arabic_typed = "حساب يار نرم افزار حسابداري براي فروشگاه كوچك است و كار را ساده مي كند. " * 3
+issues = smn.persian_issues(arabic_typed)
+assert issues.get("arabic_yeh_kaf", 0) >= 20 and issues.get("space_instead_of_zwnj", 0) >= 3, issues
+assert smn.persian_issues("هذا نص عربي عن برامج المحاسبة للمتاجر الصغيرة " * 4) == {}  # Arabic is left alone
 
 # HTML: main/article content wins over navigation and scripts.
 html = ("<html><nav>Home About Pricing</nav><script>var x=1</script><main><h1>Best tool</h1>"
@@ -34,6 +39,9 @@ assert s["cited"] and s["quote_share"] == 1.0 and not s["brand"], s
 s = smn.score("بهترین گزینه آكمه است [S1]. گزینه دیگر هم هست [S2].", 1, ["آکمه"])
 assert s["brand"] and s["position"] == 1, s
 assert not smn.score("No sources used.", 1, ["Acme"])["cited"]
+# brand spelling variants: space, ZWNJ or nothing between the parts, Arabic or Persian letters
+for written in ("حساب يار", "حساب‌یار", "حسابیار"):
+    assert smn.score(f"{written} مناسب است [S1].", 1, ["حساب‌یار"])["brand"], written
 
 # Paired significance: exact McNemar.
 assert smn.mcnemar_p(0, 0) == 1.0

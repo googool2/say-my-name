@@ -39,11 +39,13 @@ def normalize(s):
 
 
 def persian_issues(text):
-    """Counts of common Persian typing problems, or {} for non-Persian text."""
-    if len(PERSIAN.findall(text)) < 20:
+    """Counts of common Persian typing problems, or {} for non-Persian text.
+    Persian = Arabic script with at least one Persian-only letter, so pages typed on an Arabic keyboard still count."""
+    if len(re.findall(r"[؀-ۿ]", text)) < 50 or not re.search(r"[پچژگ]", text):
         return {}
+    fixed = text.replace("ي", "ی").replace("ك", "ک")  # so "مي كند" is also caught as a missing ZWNJ
     issues = {"arabic_yeh_kaf": len(ARABIC_YEH_KAF.findall(text)),
-              "space_instead_of_zwnj": len(ZWNJ_MI.findall(text)) + len(ZWNJ_HA.findall(text)),
+              "space_instead_of_zwnj": len(ZWNJ_MI.findall(fixed)) + len(ZWNJ_HA.findall(fixed)),
               "mixed_digits": int(bool(re.search(r"[0-9]", text)) + bool(re.search(r"[۰-۹]", text)) + bool(re.search(r"[٠-٩]", text)) > 1)}
     return {k: v for k, v in issues.items() if v}
 
@@ -156,10 +158,11 @@ def score(answer, ours, brands):
         total += w
         if ours in ids:
             mine += w / len(ids)
-    text = normalize(CITE.sub("", answer))
+    compact = lambda s: re.sub(r"\s+", "", normalize(s))  # "حساب يار" = "حساب‌یار" = "حسابیار"
+    text = compact(CITE.sub("", answer))
     return {"cited": ours in order, "position": order.index(ours) + 1 if ours in order else None,
             "quote_share": round(mine / total, 4) if total else 0.0,
-            "brand": any(normalize(b) in text for b in brands)}
+            "brand": any(compact(b) in text for b in brands)}
 
 
 def engine_fake(question, sources, rnd):

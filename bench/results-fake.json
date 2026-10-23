@@ -1,0 +1,144 @@
+{
+ "engine": "fake",
+ "runs": 5,
+ "date": "2026-10-23",
+ "fixtures": {
+  "en": {
+   "metrics": {
+    "baseline": {
+     "cited": 0.6,
+     "quote": 0.26325000000000004,
+     "brand": 0.15,
+     "position": 1.75,
+     "n": 20
+    },
+    "aa": {
+     "cited": 0.6,
+     "quote": 0.26325000000000004,
+     "brand": 0.15,
+     "position": 1.75,
+     "n": 20
+    },
+    "planted": {
+     "cited": 1.0,
+     "quote": 0.6225,
+     "brand": 1.0,
+     "position": 1.0,
+     "n": 20
+    },
+    "removed": {
+     "cited": 0.35,
+     "quote": 0.16887500000000003,
+     "brand": 0.15,
+     "position": 1.5714285714285714,
+     "n": 20
+    }
+   },
+   "compare": {
+    "aa": {
+     "pairs": 20,
+     "only_baseline": 0,
+     "only_variant": 0,
+     "p": 1.0,
+     "quote_delta": 0.0,
+     "verdict": "no measurable difference"
+    },
+    "planted": {
+     "pairs": 20,
+     "only_baseline": 0,
+     "only_variant": 8,
+     "p": 0.0078125,
+     "quote_delta": 0.35925,
+     "verdict": "WIN"
+    },
+    "removed": {
+     "pairs": 20,
+     "only_baseline": 5,
+     "only_variant": 0,
+     "p": 0.0625,
+     "quote_delta": -0.094375,
+     "verdict": "no measurable difference"
+    }
+   },
+   "checks": {
+    "A/A is not a win": true,
+    "planted wins": true,
+    "removed does not win": true,
+    "repeat within 10 points": true
+   },
+   "calls": 80,
+   "cost_usd": 0.0,
+   "seconds": 0.0
+  },
+  "fa": {
+   "metrics": {
+    "baseline": {
+     "cited": 0.4,
+     "quote": 0.151,
+     "brand": 0.0,
+     "position": 2.0,
+     "n": 15
+    },
+    "aa": {
+     "cited": 0.4,
+     "quote": 0.151,
+     "brand": 0.0,
+     "position": 2.0,
+     "n": 15
+    },
+    "planted": {
+     "cited": 1.0,
+     "quote": 0.6225,
+     "brand": 1.0,
+     "position": 1.0,
+     "n": 15
+    },
+    "removed": {
+     "cited": 0.13333333333333333,
+     "quote": 0.050333333333333334,
+     "brand": 0.0,
+     "position": 2.0,
+     "n": 15
+    }
+   },
+   "compare": {
+    "aa": {
+     "pairs": 15,
+     "only_baseline": 0,
+     "only_variant": 0,
+     "p": 1.0,
+     "quote_delta": 0.0,
+     "verdict": "no measurable difference"
+    },
+    "planted": {
+     "pairs": 15,
+     "only_baseline": 0,
+     "only_variant": 9,
+     "p": 0.00390625,
+     "quote_delta": 0.47150000000000003,
+     "verdict": "WIN"
+    },
+    "removed": {
+     "pairs": 15,
+     "only_baseline": 5,
+     "only_variant": 1,
+     "p": 0.21875,
+     "quote_delta": -0.10066666666666667,
+     "verdict": "no measurable difference"
+    }
+   },
+   "checks": {
+    "A/A is not a win": true,
+    "planted wins": true,
+    "removed does not win": true,
+    "repeat within 10 points": true,
+    "Persian issues detected": true,
+    "Persian brand detected": true
+   },
+   "calls": 60,
+   "cost_usd": 0.0,
+   "seconds": 0.0
+  }
+ },
+ "all_passed": true
+}
