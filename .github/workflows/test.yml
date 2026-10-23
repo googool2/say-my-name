@@ -1,0 +1,32 @@
+# Rule tests, command tests and the lab self-test, on every OS, with the free fake engine (no model calls).
+# The real-engine lab test (bench.py --engine claude) uses a Claude login and quota, so it runs locally, not here.
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python: ["3.10", "3.14"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python skills/say-my-name/scripts/smn.py --version
+      - run: python bench/test_rules.py
+      - run: python bench/test_commands.py
+      - run: python bench/bench.py --engine fake
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lab-fake-${{ matrix.os }}-py${{ matrix.python }}
+          path: bench/RESULTS-fake.md
