@@ -21,7 +21,6 @@ STATE = Path(".smn")
 UA = "SayMyName/0.1 (+https://github.com/googool2/say-my-name)"
 MAX_WORDS = 1500  # per source; long pages are cut the same way for every variant
 EDITABLE = {".md", ".mdx", ".txt", ".markdown"}
-NO_TOOLS = ["Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebFetch", "WebSearch", "Task", "Agent", "NotebookEdit"]
 HONESTY = ("Simulated engine: this measures how likely your page is to be cited and quoted when it is among the "
            "sources, not whether a live AI search retrieves it in the first place.")
 
@@ -184,9 +183,12 @@ def engine_claude(prompt, model):
         sys.exit("the claude CLI is not on PATH; install Claude Code or use --engine fake")
     # inherited CLAUDE* variables from a parent session would hijack auth and settings
     env = {k: v for k, v in os.environ.items() if not (k.startswith("CLAUDE") or k == "ANTHROPIC_BASE_URL")}
+    env["DISABLE_PROMPT_CACHING"] = "1"  # every prompt is different, so writing a cache only costs more
     with tempfile.TemporaryDirectory() as empty:  # no project CLAUDE.md can leak into the answer
         r = subprocess.run([claude, "-p", "--output-format", "json", "--model", model, "--setting-sources", "project",
-                            "--strict-mcp-config", "--no-session-persistence", "--disallowedTools", *NO_TOOLS],
+                            "--strict-mcp-config", "--no-session-persistence", "--tools", "",
+                            # replaces Claude Code's own ~25k-token system prompt: 5x cheaper, no coding persona
+                            "--system-prompt", "You are an answer engine."],
                            input=prompt, cwd=empty, env=env, capture_output=True, text=True, encoding="utf-8",
                            errors="replace", timeout=600)
     try:
@@ -273,7 +275,7 @@ def cmd_test(a):
                 if r.get("cost_usd")] if (STATE / "results").exists() else []
         per_call = sum(r["cost_usd"] for r in hist) / len(hist) if hist else None
         guess = f"measured ${per_call:.3f}/call so far -> about ${per_call * calls:.2f}" if per_call else \
-            "roughly $0.03-0.08 per call with Claude Sonnet -> about ${:.2f}-{:.2f}".format(0.03 * calls, 0.08 * calls)
+            "at Sonnet list prices about ${:.2f}-{:.2f}".format(*(calls * (prompt_tokens * 3 + 400 * 15) / 1e6 * k for k in (1, 1.5)))
         print(f"Testing {name!r}: {calls} engine calls ({len(cfg['questions'])} questions x {cfg['runs']} runs), "
               f"~{prompt_tokens:,} prompt tokens each; {guess}. This uses your Claude Code quota.")
         print(f"Run it with: smn.py test {name} --yes")
@@ -287,13 +289,18 @@ def cmd_test(a):
             rnd.shuffle(order)
             sources = [clip(ours) if i == 0 else clip(comps[i - 1]) for i in order]
             our_id = order.index(0) + 1
-            try:
-                if a.engine == "fake":
-                    answer, use = engine_fake(q, sources, random.Random(seed))
-                else:
-                    answer, use = engine_claude(build_prompt(q, sources), a.model)
-            except RuntimeError as e:
-                print(f"  q{qi + 1} run {r + 1}: engine error, skipped ({e})")
+            answer = None
+            for _ in range(2):  # one retry: connections drop now and then
+                try:
+                    if a.engine == "fake":
+                        answer, use = engine_fake(q, sources, random.Random(seed))
+                    else:
+                        answer, use = engine_claude(build_prompt(q, sources), a.model)
+                    break
+                except RuntimeError as e:
+                    err = e
+            if answer is None:
+                print(f"  q{qi + 1} run {r + 1}: engine error, skipped ({err})")
                 continue
             res = {"q": qi, "run": r, "seed": seed, "our_id": our_id, **score(answer, our_id, cfg["brands"]), **use,
                    "answer": answer}
