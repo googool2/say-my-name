@@ -2,7 +2,7 @@
   <img src="assets/say-my-name.jpg" alt="Now, say my name: a cyberpunk figure with HUD glasses in a desert, a hovering car and a neon city behind him" width="760">
 </p>
 
-<h1 align="center">Say My Name</h1>
+<h1 align="center"><img src="assets/icon.png" alt="" width="44" align="absmiddle">&nbsp;Say My Name</h1>
 
 <p align="center">
   <b>A Claude Code skill that tests whether AI answer engines would cite your page,<br>and keeps only the rewrites that measurably win.</b>
