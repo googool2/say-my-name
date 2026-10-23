@@ -30,6 +30,8 @@ html = ("<html><nav>Home About Pricing</nav><script>var x=1</script><main><h1>Be
         + "<p>" + "Useful sentence about the product. " * 30 + "</p></main><footer>Copyright</footer></html>")
 text = smn.html_to_text(html)
 assert "Best tool" in text and "Home About" not in text and "var x" not in text and "Copyright" not in text
+# neighbouring inline tags don't glue words together
+assert "رنگی که امضای توست" in smn.html_to_text("<p><span>رنگی که</span><span>امضای توست</span>" + " کلمه" * 90 + "</p>")
 
 # Scoring: citations, position, quote share, brand (Latin and Persian spellings).
 s = smn.score("Acme is the best pick for small shops [S3]. Others exist [S1].", 3, ["Acme"])

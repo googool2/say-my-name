@@ -11,7 +11,7 @@
 
 State lives in ./.smn/ . Stdlib only. Engines: claude (headless Claude Code, default) or fake (tests).
 """
-import argparse, datetime, difflib, hashlib, json, math, os, random, re, shutil, subprocess, sys, tempfile, time
+import argparse, datetime, difflib, gzip, hashlib, json, math, os, random, re, shutil, subprocess, sys, tempfile, time
 import urllib.parse, urllib.request, urllib.robotparser
 from html.parser import HTMLParser
 from pathlib import Path
@@ -62,12 +62,13 @@ class _Text(HTMLParser):
             self.skip += 1
         if tag in ("main", "article"):
             self.main_depth += 1
-        if tag in ("p", "br", "li", "h1", "h2", "h3", "h4", "tr", "div", "section"):
-            self._emit("\n")
+        # blocks start a new line; every other tag boundary is a space, so <span>a</span><span>b</span> isn't "ab"
+        self._emit("\n" if tag in ("p", "br", "li", "h1", "h2", "h3", "h4", "h5", "h6", "tr", "div", "section") else " ")
 
     def handle_endtag(self, tag):
         if tag in self.SKIP and self.skip:
             self.skip -= 1
+        self._emit(" ")
         if tag in ("main", "article") and self.main_depth:
             self.main_depth -= 1
 
@@ -107,7 +108,10 @@ def fetch(src):
     req = urllib.request.Request(src, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=30) as r:
         charset = r.headers.get_content_charset() or "utf-8"
-        return html_to_text(r.read().decode(charset, errors="replace")), "url"
+        body = r.read()
+        if body[:2] == b"\x1f\x8b":  # some servers gzip the body without saying so
+            body = gzip.decompress(body)
+        return html_to_text(body.decode(charset, errors="replace")), "url"
 
 
 def clip(text, n=MAX_WORDS):
