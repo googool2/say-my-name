@@ -8,7 +8,7 @@ Versions follow [Semantic Versioning](https://semver.org/):
 
 `python skills/say-my-name/scripts/smn.py --version` prints the installed version.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-24
 
 First version: `prep`, `test`, `variant`, `report`, `apply` and `undo`, with a simulated answer engine (Claude through the Claude Code CLI) and paired significance tests.
 
