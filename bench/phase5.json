@@ -1,0 +1,370 @@
+{
+ "engine": "claude sonnet via smn 0.1.0 (short system prompt, no tools, no cache)",
+ "date": "2026-10-24",
+ "questions_per_page": 3,
+ "runs_per_question": 5,
+ "answers": 720,
+ "cost_usd": 40.47,
+ "pages": [
+  {
+   "page": "Plausible",
+   "lang": "en",
+   "niche": "privacy analytics",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.475
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.452,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.442,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.441,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.424
+   }
+  },
+  {
+   "page": "Simple Analytics",
+   "lang": "en",
+   "niche": "privacy analytics",
+   "baseline": {
+    "cited": 0.733,
+    "quote": 0.213
+   },
+   "aa": {
+    "cited": 0.8,
+    "quote": 0.229,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.3877
+   },
+   "answer-first": {
+    "cited": 0.867,
+    "quote": 0.241,
+    "verdict": "no measurable difference",
+    "p_cite": 0.5,
+    "p_quote": 0.0923
+   },
+   "structure": {
+    "cited": 0.8,
+    "quote": 0.232,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   }
+  },
+  {
+   "page": "Asana",
+   "lang": "en",
+   "niche": "project management",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.356
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.359,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.7744
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.4,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.396,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.7744
+   }
+  },
+  {
+   "page": "Clockify",
+   "lang": "en",
+   "niche": "time tracking",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.541
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.526,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.7905
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.514,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.505,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.2668
+   }
+  },
+  {
+   "page": "Harvest",
+   "lang": "en",
+   "niche": "time tracking",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.394
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.417,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.7905
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.4,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.7744
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.392,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   }
+  },
+  {
+   "page": "Framer",
+   "lang": "en",
+   "niche": "website builders",
+   "baseline": {
+    "cited": 0.867,
+    "quote": 0.14
+   },
+   "aa": {
+    "cited": 0.8,
+    "quote": 0.118,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.22,
+    "verdict": "no measurable difference",
+    "p_cite": 0.5,
+    "p_quote": 0.424
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.203,
+    "verdict": "WIN",
+    "p_cite": 0.5,
+    "p_quote": 0.0129
+   }
+  },
+  {
+   "page": "Squarespace",
+   "lang": "en",
+   "niche": "website builders",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.337
+   },
+   "aa": {
+    "cited": 0.933,
+    "quote": 0.313,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.2668
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.333,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.443,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.1185
+   }
+  },
+  {
+   "page": "Shimen Shop",
+   "lang": "fa",
+   "niche": "beauty stores",
+   "baseline": {
+    "cited": 0.933,
+    "quote": 0.18
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.203,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   },
+   "answer-first": {
+    "cited": 0.933,
+    "quote": 0.229,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.424
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.25,
+    "verdict": "WIN",
+    "p_cite": 1.0,
+    "p_quote": 0.0063
+   }
+  },
+  {
+   "page": "Yasmetic",
+   "lang": "fa",
+   "niche": "beauty stores",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.202
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.231,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.146
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.347,
+    "verdict": "WIN",
+    "p_cite": 1.0,
+    "p_quote": 0.001
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.314,
+    "verdict": "WIN",
+    "p_cite": 1.0,
+    "p_quote": 0.0074
+   }
+  },
+  {
+   "page": "Hiddify",
+   "lang": "fa",
+   "niche": "anti-censorship VPNs",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.232
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.235,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.26,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.2668
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.251,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   }
+  },
+  {
+   "page": "Lantern",
+   "lang": "fa",
+   "niche": "anti-censorship VPNs",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.314
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.313,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.307,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.5811
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.293,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 0.146
+   }
+  },
+  {
+   "page": "Psiphon",
+   "lang": "fa",
+   "niche": "anti-censorship VPNs",
+   "baseline": {
+    "cited": 1.0,
+    "quote": 0.302
+   },
+   "aa": {
+    "cited": 1.0,
+    "quote": 0.293,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "answer-first": {
+    "cited": 1.0,
+    "quote": 0.303,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   },
+   "structure": {
+    "cited": 1.0,
+    "quote": 0.31,
+    "verdict": "no measurable difference",
+    "p_cite": 1.0,
+    "p_quote": 1.0
+   }
+  }
+ ]
+}

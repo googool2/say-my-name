@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="610" viewBox="0 0 760 610" role="img" aria-label="12 live pages: as they are vs the best rewrite" font-family='system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif'>
+<title>12 live pages: as they are vs the best rewrite</title>
+<text x="0.0" y="20.0" font-size="16" fill="#f0efec" text-anchor="start" font-weight="600">12 live pages: as they are vs the best rewrite</text>
+<text x="0.0" y="40.0" font-size="12" fill="#c3c2b7" text-anchor="start" font-weight="400">Quote share: how much of the AI's answer came from the page. 3 buyer questions x 5 paired runs per version.</text>
+<text x="0.0" y="57.0" font-size="12" fill="#c3c2b7" text-anchor="start" font-weight="400">Right: the paired-test verdict for that rewrite. Most pages were already cited every time.</text>
+<text x="732.2" y="20.0" font-size="12" fill="#c3c2b7" text-anchor="start" font-weight="400">WIN</text>
+<circle cx="723.2" cy="16.0" r="4" fill="#3987e5" stroke="#0d1117" stroke-width="2"/>
+<text x="617.0" y="20.0" font-size="12" fill="#c3c2b7" text-anchor="start" font-weight="400">Best rewrite</text>
+<circle cx="608.0" cy="16.0" r="4" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="548.0" y="20.0" font-size="12" fill="#c3c2b7" text-anchor="start" font-weight="400">As is</text>
+<circle cx="539.0" cy="16.0" r="4" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<text x="0.0" y="103.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Plausible</text>
+<text x="0.0" y="119.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">privacy analytics · English</text>
+<line x1="250" y1="104" x2="640" y2="104" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="537.3" y1="104" x2="558.8" y2="104" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="558.8" cy="104.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="537.3" cy="104.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="108.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="143.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Simple Analytics</text>
+<text x="0.0" y="159.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">privacy analytics · English</text>
+<line x1="250" y1="144" x2="640" y2="144" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="388.4" y1="144" x2="406.6" y2="144" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="388.4" cy="144.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="406.6" cy="144.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="148.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="183.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Asana</text>
+<text x="0.0" y="199.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">project management · English</text>
+<line x1="250" y1="184" x2="640" y2="184" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="481.4" y1="184" x2="510.0" y2="184" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="481.4" cy="184.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="510.0" cy="184.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="188.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="223.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Clockify</text>
+<text x="0.0" y="239.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">time tracking · English</text>
+<line x1="250" y1="224" x2="640" y2="224" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="584.1" y1="224" x2="601.7" y2="224" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="601.7" cy="224.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="584.1" cy="224.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="228.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="263.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Harvest</text>
+<text x="0.0" y="279.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">time tracking · English</text>
+<line x1="250" y1="264" x2="640" y2="264" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="506.1" y1="264" x2="510.0" y2="264" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="506.1" cy="264.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="510.0" cy="264.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="268.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="303.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Framer</text>
+<text x="0.0" y="319.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">website builders · English</text>
+<line x1="250" y1="304" x2="640" y2="304" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="341.0" y1="304" x2="382.0" y2="304" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="341.0" cy="304.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="382.0" cy="304.0" r="5" fill="#3987e5" stroke="#0d1117" stroke-width="2"/>
+<text x="760.0" y="308.0" font-size="12" fill="#f0efec" text-anchor="end" font-weight="600">WIN · structure</text>
+<text x="0.0" y="343.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Squarespace</text>
+<text x="0.0" y="359.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">website builders · English</text>
+<line x1="250" y1="344" x2="640" y2="344" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="469.1" y1="344" x2="538.0" y2="344" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="469.1" cy="344.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="538.0" cy="344.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="348.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="383.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Shimen Shop</text>
+<text x="0.0" y="399.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">beauty stores · Persian</text>
+<line x1="250" y1="384" x2="640" y2="384" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="367.0" y1="384" x2="412.5" y2="384" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="367.0" cy="384.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="412.5" cy="384.0" r="5" fill="#3987e5" stroke="#0d1117" stroke-width="2"/>
+<text x="760.0" y="388.0" font-size="12" fill="#f0efec" text-anchor="end" font-weight="600">WIN · structure</text>
+<text x="0.0" y="423.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Yasmetic</text>
+<text x="0.0" y="439.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">beauty stores · Persian</text>
+<line x1="250" y1="424" x2="640" y2="424" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="381.3" y1="424" x2="475.5" y2="424" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="381.3" cy="424.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="475.5" cy="424.0" r="5" fill="#3987e5" stroke="#0d1117" stroke-width="2"/>
+<text x="760.0" y="428.0" font-size="12" fill="#f0efec" text-anchor="end" font-weight="600">WIN · both rewrites</text>
+<text x="0.0" y="463.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Hiddify</text>
+<text x="0.0" y="479.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">anti-censorship VPNs · Persian</text>
+<line x1="250" y1="464" x2="640" y2="464" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="400.8" y1="464" x2="419.0" y2="464" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="400.8" cy="464.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="419.0" cy="464.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="468.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="503.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Lantern</text>
+<text x="0.0" y="519.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">anti-censorship VPNs · Persian</text>
+<line x1="250" y1="504" x2="640" y2="504" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="449.6" y1="504" x2="454.1" y2="504" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="454.1" cy="504.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="449.6" cy="504.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="508.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="0.0" y="543.0" font-size="13" fill="#f0efec" text-anchor="start" font-weight="400">Psiphon</text>
+<text x="0.0" y="559.0" font-size="11" fill="#c3c2b7" text-anchor="start" font-weight="400">anti-censorship VPNs · Persian</text>
+<line x1="250" y1="544" x2="640" y2="544" stroke="#2c2c2a" stroke-width="1"/>
+<line x1="446.3" y1="544" x2="451.5" y2="544" stroke="#3987e5" stroke-width="2" stroke-opacity="0.35"/>
+<circle cx="446.3" cy="544.0" r="5" fill="#898781" stroke="#0d1117" stroke-width="2"/>
+<circle cx="451.5" cy="544.0" r="5" fill="#0d1117" stroke="#3987e5" stroke-width="2"/>
+<text x="760.0" y="548.0" font-size="12" fill="#898781" text-anchor="end" font-weight="400">no difference</text>
+<text x="250.0" y="584.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">0.0</text>
+<text x="380.0" y="584.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">0.2</text>
+<text x="510.0" y="584.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">0.4</text>
+<text x="640.0" y="584.0" font-size="11" fill="#898781" text-anchor="middle" font-weight="400">0.6</text>
+<text x="250.0" y="600.0" font-size="11" fill="#898781" text-anchor="start" font-weight="400">quote share</text>
+</svg>

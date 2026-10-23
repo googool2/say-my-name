@@ -1,0 +1,12 @@
+{
+  "name": "say-my-name",
+  "version": "0.1.0",
+  "description": "Tests whether an AI answer engine would cite your page among your competitors for real buyer questions, and keeps only the rewrites that measurably win. Persian/RTL-ready.",
+  "author": {
+    "name": "googool2",
+    "url": "https://github.com/googool2"
+  },
+  "homepage": "https://github.com/googool2/say-my-name",
+  "license": "MIT",
+  "keywords": ["geo", "aeo", "ai-visibility", "seo", "persian"]
+}

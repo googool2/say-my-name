@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "say-my-name",
+  "description": "Say My Name: measured GEO for your pages.",
+  "owner": {
+    "name": "googool2",
+    "url": "https://github.com/googool2"
+  },
+  "plugins": [
+    {
+      "name": "say-my-name",
+      "description": "Tests whether an AI answer engine would cite your page among competitors, and keeps only the rewrites that measurably win.",
+      "source": "./",
+      "category": "marketing"
+    }
+  ]
+}
